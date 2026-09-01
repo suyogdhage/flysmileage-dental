@@ -20,6 +20,9 @@
   --radius-pill-lg: 50px;
   --radius-full: 9999px;
 
+  /* WARNING: these spacing keys (sm, md, lg, xl, 2xl..6xl) shadow Tailwind v4's
+     t-shirt width aliases, so `max-w-6xl` resolves to --spacing-6xl (60px), not
+     72rem. Use explicit arbitrary widths (max-w-[72rem]) for any max-width. */
   --spacing-xs: 5px;
   --spacing-sm: 10px;
   --spacing-md: 12px;
@@ -139,28 +142,33 @@
   --tracking-normal: var(--letter-spacing-normal);
 }
 
-body {
-  background-color: var(--color-surface-alt);
-  color: var(--color-ink);
-  font-family: var(--font-body);
-  font-weight: var(--font-weight-body);
-  line-height: var(--leading-body);
-  font-size: var(--text-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Element defaults live in @layer base so Tailwind utilities (which sit in
+   @layer utilities) can override them. Unlayered rules would otherwise win
+   the cascade outright and e.g. `text-on-primary` on an <h1> would do nothing. */
+@layer base {
+  body {
+    background-color: var(--color-surface-alt);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--leading-body);
+    font-size: var(--text-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: var(--font-weight-heading);
-  color: var(--color-ink);
-  letter-spacing: var(--tracking-normal);
-}
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-heading);
+    color: var(--color-ink);
+    letter-spacing: var(--tracking-normal);
+  }
 
-h1 { font-size: var(--text-hero-display); line-height: var(--leading-hero-display); }
-h2 { font-size: var(--text-heading-lg); line-height: var(--leading-heading-lg); }
-h3 { font-size: var(--text-heading-md); line-height: var(--leading-heading-md); }
-h4 { font-size: var(--text-heading-sm); line-height: var(--leading-heading-sm); }
+  h1 { font-size: var(--text-hero-display); line-height: var(--leading-hero-display); }
+  h2 { font-size: var(--text-heading-lg); line-height: var(--leading-heading-lg); }
+  h3 { font-size: var(--text-heading-md); line-height: var(--leading-heading-md); }
+  h4 { font-size: var(--text-heading-sm); line-height: var(--leading-heading-sm); }
+}
 
 .btn-primary {
   background-color: var(--color-primary);
@@ -302,15 +310,19 @@ h4 { font-size: var(--text-heading-sm); line-height: var(--leading-heading-sm); 
   border-radius: var(--radius-sm);
 }
 
-::selection {
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
+@layer base {
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+  }
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+@layer base {
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 }
 
 .article-body {

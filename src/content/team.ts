@@ -1,3 +1,5 @@
+// Team content sourced from https://flysmileage.com (Fly Dental Clinic, Pune).
+
 export interface TeamMember {
   slug: string;
   name: string;
@@ -11,76 +13,39 @@ export interface TeamMember {
 
 export const team: TeamMember[] = [
   {
-    slug: "dr-sarah-mitchell",
-    name: "Dr. Sarah Mitchell, DDS",
-    title: "Founder & Lead Dentist",
-    bio: "Dr. Mitchell founded FlySmileage Dental with a vision: to create a dental practice where clinical excellence meets genuine warmth. With over 15 years of experience in comprehensive and cosmetic dentistry, she's known for her gentle touch and artistic eye. Dr. Mitchell believes that every patient deserves to feel heard, understood, and cared for — not just treated.",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80",
-    education: [
-      "DDS, University of Pennsylvania School of Dental Medicine",
-      "BS Biology, Cornell University",
-      "General Practice Residency, NYU Langone Health",
-    ],
+    slug: "dr-priyal-shah",
+    name: "Dr. Priyal Shah",
+    title: "Principal Dentist",
+    bio: "Meet Dr. Priyal Shah, the best dentist in Salisbury Park. With over 17+ years of experience, he began his dental journey in 2008, and since then, he's built a reputation for his expertise and genuine care. What sets him apart is his heartfelt commitment to not just treating teeth but ensuring his patients feel relaxed, comfortable, and heard. Specializing in painless wisdom tooth extractions, Dr. Priyal goes above and beyond to ensure every patient feels at ease and has minimal discomfort. His passion for transforming smiles is matched only by his goal to make every visit an uplifting, positive experience. Outside of work, he's deeply committed to his community, always looking for ways to give back.",
+    image: "/images/flysmileage/Dr-PRIYAL-SHAH.jpg",
+    education: ["In practice since 2008", "17+ years of clinical experience"],
     certifications: [
-      "Invisalign® Platinum Provider",
-      "American Academy of Cosmetic Dentistry (AACD) Accredited",
-      "Fellow, Academy of General Dentistry",
+      "Principal Dentist, Fly Dental Clinic",
+      "Painless wisdom tooth extraction",
     ],
-    specialties: ["Cosmetic Dentistry", "Smile Design", "Invisalign", "General Dentistry"],
+    specialties: [
+      "Painless Wisdom Tooth Extraction",
+      "Root Canal Treatment",
+      "Dental Implants",
+      "Full Mouth Rehabilitation",
+    ],
   },
   {
-    slug: "dr-james-chen",
-    name: "Dr. James Chen, DMD",
-    title: "Implant & Restorative Specialist",
-    bio: "Dr. Chen brings precision and expertise to complex restorative cases. His advanced training in implantology and prosthodontics allows him to handle everything from single-tooth replacements to full-arch reconstructions. Patients appreciate his calm demeanor and ability to explain complex procedures in clear, understandable terms.",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80",
-    education: [
-      "DMD, Harvard School of Dental Medicine",
-      "BS Biomedical Engineering, Johns Hopkins University",
-      "Certificate in Implant Dentistry, UCLA",
-      "Prosthodontics Residency, Boston University",
-    ],
+    slug: "dr-payal-shah",
+    name: "Dr. Payal Shah",
+    title: "Cosmetic Dentist",
+    bio: "Meet Dr. Payal, a cosmetic dentist with more than 15 years of experience in perfecting smiles and enhancing confidence. Since starting her practice in 2008, she's transformed countless smiles with a personalized approach that focuses on both beauty and health. Beyond her professional expertise, Dr. Payal is a loving mother of two daughters, and her nurturing nature shines through in every patient interaction. She truly cares about making her patients feel comfortable and confident, taking the time to listen to their needs. Whether it's a simple check-up or a smile makeover, Dr. Payal ensures every visit is stress-free and rewarding. Her passion for dentistry is matched only by her genuine desire to improve the lives of those she treats.",
+    image: "/images/flysmileage/Dr-PAYAL-SHAH.jpg",
+    education: ["In practice since 2008", "15+ years of clinical experience"],
     certifications: [
-      "Diplomate, American Board of Oral Implantology",
-      "Fellow, International Congress of Oral Implantologists",
-      "Certified in Guided Implant Surgery (X-Nav)",
+      "Cosmetic Dentist, Fly Dental Clinic",
+      "Digital smile design",
     ],
-    specialties: ["Dental Implants", "Full-Mouth Reconstruction", "Prosthodontics", "Bone Grafting"],
+    specialties: [
+      "Cosmetic Dentistry",
+      "Smile Makeover",
+      "Dental Veneers",
+      "Teeth Whitening",
+    ],
   },
-  {
-    slug: "dr-emily-rodriguez",
-    name: "Dr. Emily Rodriguez, DDS",
-    title: "Periodontist",
-    bio: "Dr. Rodriguez specializes in the foundation of every healthy smile: the gums and supporting structures. Her expertise in periodontal plastic surgery and laser therapy allows her to treat gum disease at every stage while enhancing aesthetics. She's passionate about patient education and preventive care.",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80",
-    education: [
-      "DDS, Columbia University College of Dental Medicine",
-      "BS Chemistry, UC Berkeley",
-      "Periodontics Residency, University of Michigan",
-    ],
-    certifications: [
-      "Diplomate, American Board of Periodontology",
-      "LANAP® Certified Clinician (Laser Gum Therapy)",
-      "Member, American Academy of Periodontology",
-    ],
-    specialties: ["Periodontal Therapy", "Gum Grafting", "Crown Lengthening", "Dental Implants", "Laser Dentistry"],
-  },
-  {
-    slug: "dr-michael-okonkwo",
-    name: "Dr. Michael Okonkwo, DDS",
-    title: "Orthodontist",
-    bio: "Dr. Okonkwo combines orthodontic expertise with a deep understanding of facial aesthetics. He creates treatment plans that don't just straighten teeth — they enhance overall facial harmony. His warm approach puts even the most anxious patients at ease, whether they're 7 or 70.",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80",
-    education: [
-      "DDS, University of Michigan School of Dentistry",
-      "BS Neuroscience, Duke University",
-      "Orthodontics Residency, University of North Carolina",
-    ],
-    certifications: [
-      "Diplomate, American Board of Orthodontics",
-      "Invisalign® Diamond Provider",
-      "Member, American Association of Orthodontists",
-    ],
-    specialties: ["Orthodontics", "Invisalign", "Early Interceptive Treatment", "Surgical Orthodontics", "TMD Therapy"],
-  },
-] as const;
+];

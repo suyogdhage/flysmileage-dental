@@ -2,99 +2,119 @@
 
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
-import { Calendar, CircleDot, Sparkles, Award, Users, Building2 } from "lucide-react";
-
-const timelineItems = [
-  {
-    year: "2009",
-    title: "Founded",
-    description: "Dr. Sarah Mitchell opens FlySmileage Dental with a vision for patient-first care in a boutique setting.",
-    icon: Building2,
-    side: "left",
-  },
-  {
-    year: "2012",
-    title: "Digital Transformation",
-    description: "First practice in the region to adopt full digital workflows — CAD/CAM crowns, 3D imaging, and paperless records.",
-    icon: CircleDot,
-    side: "right",
-  },
-  {
-    year: "2016",
-    title: "Specialist Expansion",
-    description: "Dr. James Chen (implants) and Dr. Emily Rodriguez (periodontics) join, bringing advanced surgical care in-house.",
-    icon: Users,
-    side: "left",
-  },
-  {
-    year: "2019",
-    title: "Cosmetic Excellence",
-    description: "Dr. Mitchell achieves AACD Accreditation — one of fewer than 400 dentists worldwide with this distinction.",
-    icon: Award,
-    side: "right",
-  },
-  {
-    year: "2022",
-    title: "Orthodontics Added",
-    description: "Dr. Michael Okonkwo joins, completing our comprehensive specialist team with Invisalign Diamond Provider status.",
-    icon: Sparkles,
-    side: "left",
-  },
-  {
-    year: "2024",
-    title: "New Facility",
-    description: "Moved to our custom-designed Springfield location with 8 operatories, in-house lab, and dedicated surgical suite.",
-    icon: Calendar,
-    side: "right",
-  },
-];
+import { Container } from "@/components/ui/Container";
+import { OptimizedImage } from "@/components/common/Image";
+import { visitSteps } from "@/content/clinic";
 
 export const Timeline = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   ({ className, ...props }, ref) => {
     return (
       <section
         ref={ref}
-        id="timeline"
-        className={cn("bg-surface-alt", className)}
+        id="your-visit"
+        className={cn("bg-surface py-section", className)}
         {...props}
       >
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <span className="w-1 h-6 bg-primary rounded-full" aria-hidden="true" />
-            <span className="badge px-3 py-1">Our Journey</span>
+        <Container size="lg">
+          <div className="text-center mb-4xl">
+            <span className="badge">Your Visit At</span>
+            <h2 className="mt-base font-display font-heading text-[40px] leading-[1.15] text-ink">
+              Fly Dental
+            </h2>
           </div>
-          <h2 className="font-display font-heading text-heading-lg text-ink mb-4">
-            15+ Years of Trusted Care
-          </h2>
-          <p className="text-body-lg text-muted">
-            From a single-chair practice to a multi-specialist destination — our commitment to you hasn&apos;t changed.
-          </p>
-        </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -translate-x-1/2 hidden lg:block" aria-hidden="true" />
-
-          <div className="space-y-12 lg:space-y-16">
-            {timelineItems.map((item, index) => (
-              <article key={index} className={cn("relative", item.side === "right" && "lg:pl-[55%] lg:pr-0", item.side === "left" && "lg:pr-[55%] lg:pl-0")}>
-                <div className="relative lg:absolute lg:top-0 lg:left-1/2 lg:w-12 lg:h-12 lg:-translate-x-1/2 lg:-translate-y-1/2 flex items-center justify-center z-10">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
-                    <item.icon className="w-6 h-6 text-on-primary" aria-hidden="true" />
+          {/* Horizontal alternating rail on desktop, simple stack on small screens */}
+          <ol className="hidden lg:grid grid-cols-6 relative" role="list">
+            <div
+              className="absolute left-0 right-0 top-1/2 h-px bg-ink/25 -translate-y-1/2"
+              aria-hidden="true"
+            />
+            {visitSteps.map((item, index) => {
+              const isTop = index % 2 === 0;
+              return (
+                <li key={item.step} className="relative flex flex-col items-center px-sm">
+                  <div className={cn("flex flex-col items-center", isTop ? "order-1" : "order-3")}>
+                    {isTop ? (
+                      <>
+                        <div className="text-center min-h-[150px] flex flex-col justify-end">
+                          <p className="font-display font-heading text-button text-primary">
+                            {item.step}
+                          </p>
+                          <h3 className="font-display font-heading text-heading-sm text-ink mt-1">
+                            {item.title}
+                          </h3>
+                          <p className="mt-md text-body-sm text-muted">{item.description}</p>
+                        </div>
+                        <div className="w-[130px] h-[130px] my-lg flex items-center justify-center">
+                          <OptimizedImage
+                            src={item.image}
+                            alt=""
+                            width={130}
+                            height={130}
+                            objectFit="contain"
+                          />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-[130px] h-[130px] mb-lg flex items-center justify-center">
+                          <OptimizedImage
+                            src={item.image}
+                            alt=""
+                            width={130}
+                            height={130}
+                            objectFit="contain"
+                          />
+                        </div>
+                        <div className="text-center min-h-[150px]">
+                          <p className="font-display font-heading text-button text-primary">
+                            {item.step}
+                          </p>
+                          <h3 className="font-display font-heading text-heading-sm text-ink mt-1">
+                            {item.title}
+                          </h3>
+                          <p className="mt-md text-body-sm text-muted">{item.description}</p>
+                        </div>
+                      </>
+                    )}
                   </div>
-                </div>
 
-                <div className={cn("bg-surface rounded-lg p-6 md:p-8 relative", "lg:w-[45%]")}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="font-display font-heading text-button text-primary">{item.year}</span>
-                    <span className="w-8 h-px bg-primary" aria-hidden="true" />
+                  <div className="order-2 relative flex items-center justify-center h-[40px]">
+                    <span
+                      className="absolute w-px h-[40px] bg-ink/40"
+                      aria-hidden="true"
+                    />
+                    <span
+                      className="relative w-[10px] h-[10px] bg-ink rotate-45"
+                      aria-hidden="true"
+                    />
                   </div>
-                  <h3 className="font-display font-heading text-heading-sm text-ink mb-2">{item.title}</h3>
-                  <p className="text-body text-muted">{item.description}</p>
+                </li>
+              );
+            })}
+          </ol>
+
+          <ol className="lg:hidden grid sm:grid-cols-2 gap-4xl" role="list">
+            {visitSteps.map((item) => (
+              <li key={item.step} className="text-center">
+                <div className="w-[130px] h-[130px] mx-auto mb-lg flex items-center justify-center">
+                  <OptimizedImage
+                    src={item.image}
+                    alt=""
+                    width={130}
+                    height={130}
+                    objectFit="contain"
+                  />
                 </div>
-              </article>
+                <p className="font-display font-heading text-button text-primary">{item.step}</p>
+                <h3 className="font-display font-heading text-heading-sm text-ink mt-1">
+                  {item.title}
+                </h3>
+                <p className="mt-md text-body-sm text-muted">{item.description}</p>
+              </li>
             ))}
-          </div>
-        </div>
+          </ol>
+        </Container>
       </section>
     );
   }

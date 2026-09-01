@@ -24,10 +24,10 @@ export const ServicesPageContent = forwardRef<HTMLDivElement, React.HTMLAttribut
   ({ className, ...props }, ref) => {
     return (
       <div ref={ref} className={cn("py-section", className)} {...props}>
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-[42rem] mx-auto mb-12">
           <div className="inline-flex items-center gap-2 mb-4">
             <span className="w-1 h-6 bg-primary rounded-full" aria-hidden="true" />
-            <span className="badge px-3 py-1">Our Services</span>
+            <span className="badge">Our Services</span>
           </div>
           <h1 className="font-display font-heading text-hero-display text-ink mb-4">
             Comprehensive Dental Care
@@ -43,7 +43,7 @@ export const ServicesPageContent = forwardRef<HTMLDivElement, React.HTMLAttribut
             return (
             <article key={service.slug} className="group">
               <Link href={`/services/${service.slug}`} className="block">
-                <Card variant="elevated" className="h-full transition-all duration-300 hover:shadow-xl">
+                <Card variant="elevated" className="h-full transition-colors duration-200">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-md mb-4 group-hover:scale-[1.02] transition-transform duration-300">
                     <OptimizedImage
                       src={service.image}
@@ -74,7 +74,7 @@ export const ServicesPageContent = forwardRef<HTMLDivElement, React.HTMLAttribut
 
         <div className="text-center mt-16">
           <h2 className="font-display font-heading text-heading-lg text-ink mb-4">
-            Ready to Experience the FlySmileage Difference?
+            Ready to Start Your Smile Journey?
           </h2>
           <p className="text-body-lg text-muted mb-8">
             Schedule your consultation today and discover why thousands of patients trust us with their smiles.

@@ -28,8 +28,8 @@ export function BlogContent() {
   return (
     <div>
       <Section variant="surface" padding="default">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="badge px-3 py-1">Blog &amp; Resources</span>
+        <div className="text-center max-w-[42rem] mx-auto mb-12">
+          <span className="badge">Blog &amp; Resources</span>
           <h1 className="font-display font-heading text-hero-display text-ink mt-4 mb-4">
             Smile Wisdom, Straight From Our Dentists
           </h1>
@@ -59,7 +59,7 @@ export function BlogContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-              <article className="bg-surface-alt rounded-lg overflow-hidden h-full transition-shadow hover:shadow-lg">
+              <article className="bg-surface-alt rounded-lg overflow-hidden h-full transition-colors">
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <OptimizedImage
                     src={post.image}
@@ -104,8 +104,8 @@ export function BlogContent() {
           <h2 className="font-display font-heading text-heading-lg text-ink mb-3">
             Have a Question We Should Cover?
           </h2>
-          <p className="text-body text-muted mb-6 max-w-xl mx-auto">
-            Email us at <a href="mailto:hello@flysmileage.com" className="text-primary font-medium underline underline-offset-2">hello@flysmileage.com</a> — we love hearing what&apos;s on your mind.
+          <p className="text-body text-muted mb-6 max-w-[36rem] mx-auto">
+            Email us at <a href="mailto:info@flysmileage.com" className="text-primary font-medium underline underline-offset-2">info@flysmileage.com</a> — we love hearing what&apos;s on your mind.
           </p>
           <button
             onClick={() => router.push("/contact")}

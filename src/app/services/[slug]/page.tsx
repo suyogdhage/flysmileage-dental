@@ -14,9 +14,9 @@ export async function generateMetadata({
 }: ServiceDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
-  if (!service) return { title: "Service Not Found | FlySmileage Dental" };
+  if (!service) return { title: "Service Not Found | Fly Dental Clinic" };
   return {
-    title: `${service.title} | FlySmileage Dental`,
+    title: `${service.title} | Fly Dental Clinic`,
     description: service.shortDescription,
   };
 }
@@ -35,7 +35,7 @@ export default async function ServiceDetailPage({
   return (
     <div className="flex flex-col min-h-screen bg-surface-alt">
       <Header />
-      <main className="flex-1 pt-[100px]">
+      <main className="flex-1">
         <ServiceDetailContent service={service} />
       </main>
       <Footer />

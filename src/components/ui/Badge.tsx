@@ -19,9 +19,9 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
     };
 
     const sizeStyles = {
-      default: "px-3 py-1 text-button-sm",
+      default: "px-[10px] py-[5px] text-button-sm",
       sm: "px-2 py-0.5 text-[12px]",
-      lg: "px-4 py-1.5 text-button",
+      lg: "px-[14px] py-[7px] text-button",
     };
 
     return (

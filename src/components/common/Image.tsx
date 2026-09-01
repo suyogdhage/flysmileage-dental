@@ -60,9 +60,13 @@ export const OptimizedImage = forwardRef<HTMLImageElement, OptimizedImageProps>(
     };
 
     if (fill) {
+      // The wrapper must carry a definite size: its only child is absolutely
+      // positioned, so a height:auto wrapper collapses and the image vanishes.
+      // Callers give `fill` images a parent with a definite height (aspect-*,
+      // min-h-*, or inset-0), which h-full then inherits.
       return (
-        <div className={cn("relative overflow-hidden", roundedStyles[rounded])} style={{ position: "relative" }}>
-          <Image {...commonProps} alt={alt} fill style={{ position: "absolute", inset: 0 }} />
+        <div className={cn("relative w-full h-full overflow-hidden", roundedStyles[rounded])}>
+          <Image {...commonProps} alt={alt} fill />
         </div>
       );
     }

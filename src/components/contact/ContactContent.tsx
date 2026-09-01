@@ -6,7 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { MapPin, Phone, Mail, Clock, CheckCircle2, AlertCircle } from "lucide-react";
+import { MapPin, Phone, Mail, MessageCircle, CheckCircle2, AlertCircle } from "lucide-react";
+import { clinic, branches } from "@/content/clinic";
 
 const contactSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -22,13 +23,10 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const serviceOptions = [
-  "General Dentistry",
-  "Cosmetic Dentistry",
-  "Dental Implants",
-  "Orthodontics (Braces/Invisalign)",
-  "Periodontics (Gum Care)",
-  "Endodontics (Root Canal)",
-  "Pediatric Dentistry",
+  "Cosmetic Treatment",
+  "Pain Relief",
+  "Preventive Care",
+  "Restorative Dentistry",
   "Other / Not Sure",
 ];
 
@@ -71,63 +69,68 @@ export function ContactContent() {
   return (
     <div>
       <Section variant="surface" padding="default">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="badge px-3 py-1">Contact Us</span>
+        <div className="text-center max-w-[42rem] mx-auto mb-12">
+          <span className="badge">Contact Us</span>
           <h1 className="font-display font-heading text-hero-display text-ink mt-4 mb-4">
             Let&apos;s Get You Smiling
           </h1>
           <p className="text-body-lg text-muted">
-            Request an appointment, ask a question, or just say hello — we typically respond within one business day.
+            Start your journey towards a beautiful, healthy smile. Call us, message us on WhatsApp, or send the form below.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-8 items-start">
           <div className="lg:col-span-2 space-y-6">
             {[
-              { icon: MapPin, label: "Address", value: "123 Smile Street, Suite 100\nSpringfield, IL 62701" },
-              { icon: Phone, label: "Phone", value: "(555) 123-4567" },
-              { icon: Mail, label: "Email", value: "hello@flysmileage.com" },
-            ].map((item, index) => (
-              <div key={index} className="bg-surface-alt rounded-lg p-5 flex gap-4">
+              { icon: Phone, label: "Call Us Now", value: clinic.phone, href: clinic.phoneHref },
+              { icon: MessageCircle, label: "WhatsApp", value: "Message us on WhatsApp", href: clinic.whatsappHref },
+              { icon: Mail, label: "Email", value: clinic.email, href: clinic.emailHref },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="bg-surface-alt rounded-lg p-5 flex gap-4 hover:bg-primary/5 transition-colors"
+              >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <item.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="font-display font-heading text-heading-sm text-ink mb-1">{item.label}</h3>
-                  <p className="text-body text-muted whitespace-pre-line">{item.value}</p>
+                  <p className="text-body text-muted">{item.value}</p>
                 </div>
-              </div>
+              </a>
             ))}
 
             <div className="bg-surface-alt rounded-lg p-5">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Clock className="w-6 h-6 text-primary" aria-hidden="true" />
+                  <MapPin className="w-6 h-6 text-primary" aria-hidden="true" />
                 </div>
-                <h3 className="font-display font-heading text-heading-sm text-ink">Office Hours</h3>
+                <h3 className="font-display font-heading text-heading-sm text-ink">Our Clinics</h3>
               </div>
-              <dl className="space-y-2">
-                {[
-                  ["Monday – Thursday", "8:00 AM – 5:00 PM"],
-                  ["Friday", "8:00 AM – 2:00 PM"],
-                  ["Saturday", "By Appointment"],
-                  ["Sunday", "Closed"],
-                ].map(([day, time], index) => (
-                  <div key={index} className="flex justify-between gap-4 text-body text-ink">
-                    <dt className="text-muted">{day}</dt>
-                    <dd className="font-medium text-right">{time}</dd>
-                  </div>
+              <ul className="space-y-5" role="list">
+                {branches.map((branch) => (
+                  <li key={branch.label}>
+                    <p className="font-display font-heading text-body text-ink">
+                      {branch.label} &mdash; {branch.area}
+                    </p>
+                    <p className="text-body-sm text-muted">{branch.address}</p>
+                  </li>
                 ))}
-              </dl>
+              </ul>
               <p className="mt-4 text-body-sm text-muted bg-primary/5 rounded-md p-3">
-                <strong className="text-primary">Dental emergency?</strong> Call us 24/7 at (555) 123-4567 and press 1 to reach our on-call dentist.
+                <strong className="text-primary">In pain right now?</strong> Call{" "}
+                <a href={clinic.phoneHref} className="underline underline-offset-2">
+                  {clinic.phone}
+                </a>{" "}
+                and we&apos;ll get you seen as soon as possible.
               </p>
             </div>
           </div>
 
           <div className="lg:col-span-3 bg-surface-alt rounded-lg p-6 md:p-8">
             <h2 className="font-display font-heading text-heading-lg text-ink mb-2">
-              Request an Appointment
+              Appointment
             </h2>
             <p className="text-body-sm text-muted mb-6">
               Fields marked * are required.
@@ -147,7 +150,7 @@ export function ContactContent() {
                 <AlertCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
                   <p className="font-display font-heading text-body text-ink">Something went wrong</p>
-                  <p className="text-body-sm text-muted">Please try again, or call us at (555) 123-4567.</p>
+                  <p className="text-body-sm text-muted">Please try again, or call us at {clinic.phone}.</p>
                 </div>
               </div>
             )}
@@ -158,14 +161,14 @@ export function ContactContent() {
                   <label htmlFor="firstName" className="block text-body-sm font-medium text-ink mb-1">
                     First Name *
                   </label>
-                  <input id="firstName" type="text" placeholder="Jane" className={inputClasses(!!errors.firstName)} {...register("firstName")} />
+                  <input id="firstName" type="text" placeholder="First name" className={inputClasses(!!errors.firstName)} {...register("firstName")} />
                   {errors.firstName && <p className="mt-1 text-body-sm text-primary">{errors.firstName.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="lastName" className="block text-body-sm font-medium text-ink mb-1">
                     Last Name *
                   </label>
-                  <input id="lastName" type="text" placeholder="Doe" className={inputClasses(!!errors.lastName)} {...register("lastName")} />
+                  <input id="lastName" type="text" placeholder="Last name" className={inputClasses(!!errors.lastName)} {...register("lastName")} />
                   {errors.lastName && <p className="mt-1 text-body-sm text-primary">{errors.lastName.message}</p>}
                 </div>
               </div>
@@ -175,14 +178,14 @@ export function ContactContent() {
                   <label htmlFor="email" className="block text-body-sm font-medium text-ink mb-1">
                     Email Address *
                   </label>
-                  <input id="email" type="email" placeholder="jane@example.com" className={inputClasses(!!errors.email)} {...register("email")} />
+                  <input id="email" type="email" placeholder="you@example.com" className={inputClasses(!!errors.email)} {...register("email")} />
                   {errors.email && <p className="mt-1 text-body-sm text-primary">{errors.email.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-body-sm font-medium text-ink mb-1">
                     Phone Number *
                   </label>
-                  <input id="phone" type="tel" placeholder="(555) 000-0000" className={inputClasses(!!errors.phone)} {...register("phone")} />
+                  <input id="phone" type="tel" placeholder="98765 43210" className={inputClasses(!!errors.phone)} {...register("phone")} />
                   {errors.phone && <p className="mt-1 text-body-sm text-primary">{errors.phone.message}</p>}
                 </div>
               </div>
@@ -229,10 +232,10 @@ export function ContactContent() {
               </div>
 
               <Button type="submit" variant="primary" fullWidth loading={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Appointment Request"}
+                {isSubmitting ? "Sending..." : "Send"}
               </Button>
               <p className="text-body-sm text-muted text-center">
-                By submitting, you agree to be contacted by FlySmileage Dental. We never share your information.
+                By submitting, you agree to be contacted by {clinic.name}. We never share your information.
               </p>
             </form>
           </div>

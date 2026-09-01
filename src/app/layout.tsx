@@ -17,14 +17,14 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "FlySmileage Dental | Boutique Dental Care for Your Best Smile",
-  description: "FlySmileage Dental — a patient-first boutique dental practice offering comprehensive care in a warm, calm environment. Book your appointment today.",
+  title: "Best Dentist in Salisbury Park | Fly Dental Clinic, Pune",
+  description: "Fly Dental Clinic — over 17 years of personalized dental care in Salisbury Park, Raviwar Peth and Bibwewadi, Pune. We Listen, We Care. Book your appointment today.",
   openGraph: {
-    title: "FlySmileage Dental | Boutique Dental Care",
-    description: "Patient-first boutique dental practice offering comprehensive care in a warm, calm environment.",
+    title: "Fly Dental Clinic | Best Dental Clinic in Salisbury Park",
+    description: "Personalized dental care across three Pune clinics — root canal, implants, braces, smile makeover and more.",
     type: "website",
-    locale: "en_US",
-    siteName: "FlySmileage Dental",
+    locale: "en_IN",
+    siteName: "Fly Dental Clinic",
   },
 };
 

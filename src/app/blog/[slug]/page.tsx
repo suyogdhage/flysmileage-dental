@@ -14,9 +14,9 @@ export async function generateMetadata({
 }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
-  if (!post) return { title: "Post Not Found | FlySmileage Dental" };
+  if (!post) return { title: "Post Not Found | Fly Dental Clinic" };
   return {
-    title: `${post.title} | FlySmileage Dental`,
+    title: `${post.title} | Fly Dental Clinic`,
     description: post.excerpt,
   };
 }
@@ -33,7 +33,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <div className="flex flex-col min-h-screen bg-surface-alt">
       <Header />
-      <main className="flex-1 pt-[100px]">
+      <main className="flex-1">
         <BlogPostContent post={post} />
       </main>
       <Footer />

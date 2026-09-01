@@ -14,7 +14,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
 
     const variantStyles = {
       default: "",
-      elevated: "shadow-lg",
+      elevated: "bg-surface-alt",
     };
 
     const paddingStyles = {

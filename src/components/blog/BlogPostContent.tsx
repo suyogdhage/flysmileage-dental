@@ -27,7 +27,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
   return (
     <div>
       <Section variant="surface" padding="default">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-[48rem] mx-auto">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-button text-primary font-display font-heading mb-8 hover:gap-3 transition-all"
@@ -36,7 +36,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
             Back to All Articles
           </Link>
 
-          <span className="badge px-3 py-1">{post.category}</span>
+          <span className="badge">{post.category}</span>
           <h1 className="font-display font-heading text-hero-display text-ink mt-4 mb-6 leading-[1.2]">
             {post.title}
           </h1>
@@ -97,14 +97,14 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
       </Section>
 
       <Section variant="surface-alt" padding="default">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-[48rem] mx-auto">
           <h2 className="font-display font-heading text-heading-lg text-ink mb-8 text-center">
             Keep Reading
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {relatedPosts.map((related) => (
               <Link key={related.slug} href={`/blog/${related.slug}`} className="group">
-                <article className="bg-surface rounded-lg overflow-hidden h-full transition-shadow hover:shadow-lg">
+                <article className="bg-surface rounded-lg overflow-hidden h-full transition-colors">
                   <div className="relative aspect-[16/9] overflow-hidden">
                     <OptimizedImage
                       src={related.image}

@@ -1,87 +1,113 @@
 "use client";
 
-import { forwardRef } from "react";
+import { forwardRef, useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import { OptimizedImage } from "@/components/common/Image";
 import { cn } from "@/lib/utils";
-import { ChevronRight, CheckCircle, Star } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { heroSlides } from "@/content/clinic";
+
+const ROTATE_MS = 6000;
 
 export const Hero = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   ({ className, ...props }, ref) => {
-    const stats = [
-      { value: "15+", label: "Years Experience" },
-      { value: "5,000+", label: "Happy Patients" },
-      { value: "98%", label: "Satisfaction Rate" },
-      { value: "4.9★", label: "Google Rating" },
-    ];
+    const [active, setActive] = useState(0);
+
+    const go = useCallback((index: number) => {
+      setActive(((index % heroSlides.length) + heroSlides.length) % heroSlides.length);
+    }, []);
+
+    useEffect(() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const id = window.setInterval(() => {
+        setActive((current) => (current + 1) % heroSlides.length);
+      }, ROTATE_MS);
+      return () => window.clearInterval(id);
+    }, []);
 
     return (
       <section
         ref={ref}
         id="hero"
-        className={cn("relative overflow-hidden bg-surface", className)}
+        aria-roledescription="carousel"
+        aria-label="Fly Dental treatments"
+        className={cn("bg-surface-alt px-lg lg:px-4xl pt-lg pb-lg", className)}
         {...props}
       >
-        <div className="absolute inset-0 z-0">
-          <OptimizedImage
-            src="https://images.unsplash.com/photo-1606811879039-93d9f4b4b4b8?w=1920&q=80"
-            alt="Modern dental clinic interior with natural light"
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-surface/90 via-surface/70 to-transparent" />
-        </div>
-
-        <div className="relative z-10 py-section lg:py-[160px]">
-          <div className="max-w-4xl">
-            <Badge variant="primary" className="mb-6 inline-block">
-              <span className="flex items-center gap-2">
-                <Star className="w-4 h-4" aria-hidden="true" />
-                New Patients Welcome — Same-Week Appointments Available
-              </span>
-            </Badge>
-
-            <h1 className="font-display font-heading text-hero-display leading-[1.2] text-ink mb-6 max-w-3xl">
-              Gentle, Expert Dental Care<br />
-              <span className="text-primary">That Makes You Smile</span>
-            </h1>
-
-            <p className="text-body-lg text-muted mb-8 max-w-2xl leading-relaxed">
-              FlySmileage Dental combines clinical excellence with genuine warmth. 
-              From routine cleanings to complete smile transformations, our boutique practice 
-              puts your comfort and confidence first.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button variant="primary" size="default" asChild>
-                <Link href="/contact">Book Your Appointment</Link>
-              </Button>
-              <Button variant="secondary" size="default" asChild>
-                <Link href="/services">Explore Services</Link>
-              </Button>
+        <div className="relative overflow-hidden rounded-lg min-h-[520px] lg:min-h-[680px]">
+          {heroSlides.map((slide, index) => (
+            <div
+              key={slide.title}
+              className={cn(
+                "absolute inset-0 transition-opacity duration-700 ease-out",
+                index === active ? "opacity-100" : "opacity-0"
+              )}
+              aria-hidden={index !== active}
+            >
+              <OptimizedImage
+                src={slide.image}
+                alt=""
+                fill
+                priority={index === 0}
+                sizes="100vw"
+                className="object-cover"
+              />
             </div>
+          ))}
 
-            <div className="flex flex-wrap gap-8 text-sm">
-              {stats.map((stat, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-primary" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <div className="font-display font-heading text-heading-lg text-ink">{stat.value}</div>
-                    <div className="text-body-sm text-muted">{stat.label}</div>
-                  </div>
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/45 to-transparent"
+            aria-hidden="true"
+          />
+
+          <div className="relative min-h-[520px] lg:min-h-[680px] flex items-center">
+            <div className="w-full mx-auto max-w-[1280px] px-lg lg:px-[60px]">
+              {heroSlides.map((slide, index) => (
+                <div
+                  key={slide.title}
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label={`${index + 1} of ${heroSlides.length}`}
+                  className={cn("max-w-[42rem]", index === active ? "block" : "hidden")}
+                >
+                  <span className="inline-flex items-center rounded-pill border border-on-primary/70 px-[18px] py-[7px] text-button-sm font-display font-heading uppercase tracking-button text-on-primary">
+                    {slide.eyebrow}
+                  </span>
+
+                  <h1 className="mt-2xl font-display text-hero-display leading-hero-display text-on-primary">
+                    <span className="block font-heading">{slide.title}</span>
+                    <span className="block font-normal">{slide.highlight}</span>
+                  </h1>
+
+                  <Link
+                    href={slide.href}
+                    className="mt-2xl inline-flex items-center gap-2 rounded-pill bg-surface-alt px-[30px] py-[12px] font-display font-heading text-button tracking-button text-ink transition-colors hover:bg-primary hover:text-on-primary"
+                  >
+                    Read More
+                    <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                  </Link>
                 </div>
               ))}
             </div>
           </div>
-        </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
-          <ChevronRight className="w-6 h-6 text-muted rotate-90" />
+          <div className="absolute bottom-[30px] left-1/2 -translate-x-1/2 flex items-center gap-md">
+            {heroSlides.map((slide, index) => (
+              <button
+                key={slide.title}
+                type="button"
+                onClick={() => go(index)}
+                aria-label={`Show slide ${index + 1}: ${slide.eyebrow}`}
+                aria-current={index === active}
+                className={cn(
+                  "h-[10px] rounded-full transition-all duration-300",
+                  index === active
+                    ? "w-[30px] bg-primary"
+                    : "w-[10px] bg-on-primary/70 hover:bg-on-primary"
+                )}
+              />
+            ))}
+          </div>
         </div>
       </section>
     );

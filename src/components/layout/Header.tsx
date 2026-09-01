@@ -1,85 +1,119 @@
 "use client";
 
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
-import { Menu, X, Phone, Mail } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import { clinic } from "@/content/clinic";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
+  { href: "/services", label: "Treatments" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#reviews", label: "Reviews" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 const contactInfo = [
-  { icon: Phone, text: "(555) 123-4567", href: "tel:5551234567" },
-  { icon: Mail, text: "hello@flysmileage.com", href: "mailto:hello@flysmileage.com" },
+  { icon: Phone, text: clinic.phone, href: clinic.phoneHref },
+  { icon: Mail, text: clinic.email, href: clinic.emailHref },
 ];
+
+// lucide-react no longer ships brand marks, so these are inline paths.
+const socialPaths: Record<string, string> = {
+  Facebook:
+    "M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z",
+  Instagram:
+    "M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2a6.6 6.6 0 1 0 0 13.2 6.6 6.6 0 0 0 0-13.2zm0 10.9a4.3 4.3 0 1 1 0-8.6 4.3 4.3 0 0 1 0 8.6zm6.9-11.1a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z",
+  YouTube:
+    "M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z",
+};
 
 export const Header = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   ({ className, ...props }, ref) => {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-      const handleScroll = () => {
-        setIsScrolled(window.scrollY > 20);
-      };
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
     return (
-      <header
-        ref={ref}
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          "bg-surface-alt/95 backdrop-blur-sm",
-          isScrolled ? "border-b border-muted/20 shadow-sm" : "",
-          className
-        )}
-        {...props}
-      >
-        <Container>
-          <div className="flex items-center justify-between h-[100px]">
-            <Link href="/" className="flex items-center gap-2" aria-label="FlySmileage Dental Home">
+      <header ref={ref} className={cn("relative z-50 bg-surface-alt", className)} {...props}>
+        <div className="bg-surface">
+          <div className="w-full px-lg lg:px-4xl">
+            <div className="flex flex-wrap items-center justify-between gap-x-2xl gap-y-sm py-md">
+              <div className="flex items-center gap-xl text-body-sm text-ink">
+                <span className="inline-flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-primary" aria-hidden="true" />
+                  {clinic.primaryLocation}
+                </span>
+                <a
+                  href={clinic.emailHref}
+                  className="hidden sm:inline-flex items-center gap-2 hover:text-primary transition-colors"
+                >
+                  <Mail className="w-4 h-4 text-primary" aria-hidden="true" />
+                  {clinic.email}
+                </a>
+              </div>
+              <div className="flex items-center gap-base">
+                {clinic.socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="text-ink hover:text-primary transition-colors"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-4 h-4"
+                      aria-hidden="true"
+                    >
+                      <path d={socialPaths[social.label]} />
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full px-lg lg:px-4xl">
+          <div className="flex items-center justify-between h-[100px] gap-4xl">
+            <Link href="/" className="flex flex-col leading-none shrink-0" aria-label="Fly Dental Clinic Home">
               <span className="font-display font-heading text-heading-lg text-ink">
-                FlySmileage<span className="text-primary"> Dental</span>
+                FLY<span className="text-primary">.</span>
               </span>
+              <span className="text-body-sm text-muted italic">The new smileage</span>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+            <nav className="hidden lg:flex items-center gap-xl xl:gap-2xl mx-auto" aria-label="Main navigation">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="nav-link"
-                >
+                <Link key={link.href} href={link.href} className="nav-link uppercase tracking-button">
                   {link.label}
                 </Link>
               ))}
             </nav>
 
-            <div className="hidden md:flex items-center gap-4">
-              <a
-                href="tel:5551234567"
-                className="nav-link flex items-center gap-1.5 hover:text-primary transition-colors"
-              >
-                <Phone className="w-4 h-4" aria-hidden="true" />
-                <span>(555) 123-4567</span>
+            <div className="hidden lg:flex items-center gap-xl shrink-0">
+              <a href={clinic.phoneHref} className="flex items-center gap-md group whitespace-nowrap">
+                <span className="icon-badge w-12 h-12 shrink-0">
+                  <Phone className="w-5 h-5" aria-hidden="true" />
+                </span>
+                <span className="flex flex-col leading-tight">
+                  <span className="text-body-sm text-muted uppercase tracking-button">Call Us Now</span>
+                  <span className="font-display font-heading text-body-lg text-ink group-hover:text-primary transition-colors">
+                    {clinic.phone}
+                  </span>
+                </span>
               </a>
               <Button variant="primary" asChild>
-                <Link href="/contact">Book Appointment</Link>
+                <Link href="/contact">Book An Appointment</Link>
               </Button>
             </div>
 
             <button
-              className="md:hidden p-2 rounded-md text-ink hover:bg-surface transition-colors"
+              className="lg:hidden p-2 rounded-md text-ink hover:bg-surface transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
@@ -88,48 +122,44 @@ export const Header = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-        </Container>
+        </div>
 
         <div
           id="mobile-menu"
           className={cn(
-            "md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-surface-alt border-t border-muted/20",
-            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            "lg:hidden overflow-hidden transition-all duration-300 ease-in-out bg-surface-alt border-t border-muted/20",
+            isMobileMenuOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
           )}
           role="navigation"
           aria-label="Mobile navigation"
         >
-          <Container className="py-6">
-            <nav className="flex flex-col gap-4" aria-label="Mobile main navigation">
+          <div className="w-full px-lg lg:px-4xl py-2xl">
+            <nav className="flex flex-col gap-base" aria-label="Mobile main navigation">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="nav-link py-2 block"
+                  className="nav-link uppercase tracking-button py-2 block"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
-            <div className="mt-6 flex flex-col gap-3">
+            <div className="mt-2xl flex flex-col gap-md">
               {contactInfo.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="nav-link flex items-center gap-3 py-2"
-                >
+                <a key={item.href} href={item.href} className="nav-link flex items-center gap-3 py-2">
                   <item.icon className="w-5 h-5 text-primary" aria-hidden="true" />
                   <span>{item.text}</span>
                 </a>
               ))}
-              <Button variant="primary" fullWidth className="mt-2" asChild>
+              <Button variant="primary" fullWidth className="mt-sm" asChild>
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  Book Appointment
+                  Book An Appointment
                 </Link>
               </Button>
             </div>
-          </Container>
+          </div>
         </div>
       </header>
     );

@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/Button";
 import { OptimizedImage } from "@/components/common/Image";
 import { Section } from "@/components/ui/Section";
 import { services, type Service } from "@/content/services";
-import { ArrowLeft, Check, ArrowRight, Clock, DollarSign, Stethoscope } from "lucide-react";
+import { ArrowLeft, Check, ArrowRight, Clock, IndianRupee, Stethoscope, HelpCircle } from "lucide-react";
+import { clinic } from "@/content/clinic";
 
 interface ServiceDetailContentProps {
   service: Service;
@@ -26,7 +27,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
             <div className="mb-4">
-              <span className="badge px-3 py-1">{service.title}</span>
+              <span className="badge">{service.title}</span>
             </div>
             <h1 className="font-display font-heading text-hero-display text-ink mb-6">
               {service.title}
@@ -41,17 +42,17 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
                 <span className="font-medium">Duration:</span> {service.duration}
               </div>
               <div className="flex items-center gap-2">
-                <DollarSign className="w-5 h-5 text-primary" aria-hidden="true" />
-                <span className="font-medium">Est. Range:</span> {service.priceRange}
+                <IndianRupee className="w-5 h-5 text-primary" aria-hidden="true" />
+                <span className="font-medium">Cost:</span> {service.priceRange}
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="primary" asChild>
-                <Link href="/contact">Book This Service</Link>
+                <Link href="/contact">Book An Appointment</Link>
               </Button>
               <Button variant="secondary" asChild>
-                <Link href="/contact">Ask a Question</Link>
+                <a href={clinic.phoneHref}>Call {clinic.phone}</a>
               </Button>
             </div>
           </div>
@@ -59,7 +60,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden lg:sticky lg:top-[120px]">
             <OptimizedImage
               src={service.image}
-              alt={`${service.title} at FlySmileage Dental`}
+              alt={`${service.title} at ${clinic.name}`}
               fill
               priority
               className="object-cover"
@@ -73,7 +74,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
           <div>
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="w-1 h-6 bg-primary rounded-full" aria-hidden="true" />
-              <span className="badge px-3 py-1">What&apos;s Included</span>
+              <span className="badge">What&apos;s Included</span>
             </div>
             <h2 className="font-display font-heading text-heading-lg text-ink mb-6">
               Treatments &amp; Options
@@ -120,7 +121,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
             <div className="mt-6 flex items-center gap-3 p-4 bg-surface-alt rounded-md">
               <Stethoscope className="w-6 h-6 text-primary" aria-hidden="true" />
               <p className="text-body-sm text-ink">
-                Have questions? Our team is happy to help you find the right option.
+                Have questions? Call {clinic.phone} — our team is happy to help you find the right option.
               </p>
             </div>
             <Button variant="primary" fullWidth className="mt-4" asChild>
@@ -132,9 +133,63 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
         </div>
       </Section>
 
+      {service.sections.length > 0 && (
+        <Section variant="surface" padding="default">
+          <div className="max-w-[48rem]">
+            {service.sections.map((section) => (
+              <div key={section.heading} className="mb-10 last:mb-0">
+                <h2 className="font-display font-heading text-heading-md text-ink mb-3">
+                  {section.heading}
+                </h2>
+                {section.body && (
+                  <p className="text-body text-muted leading-relaxed">{section.body}</p>
+                )}
+                {section.bullets && (
+                  <ul className="mt-4 space-y-3">
+                    {section.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-3">
+                        <span className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-4 h-4 text-primary" aria-hidden="true" />
+                        </span>
+                        <span className="text-body text-ink">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {service.faqs.length > 0 && (
+        <Section variant="surface-alt" padding="default">
+          <div className="max-w-[48rem]">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="w-1 h-6 bg-primary rounded-full" aria-hidden="true" />
+              <span className="badge">FAQs</span>
+            </div>
+            <h2 className="font-display font-heading text-heading-lg text-ink mb-8">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4">
+              {service.faqs.map((faq) => (
+                <details key={faq.question} className="bg-surface rounded-lg p-5 group">
+                  <summary className="cursor-pointer flex items-start gap-3 font-display font-heading text-body text-ink">
+                    <HelpCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                    {faq.question}
+                  </summary>
+                  <p className="mt-3 pl-8 text-body text-muted leading-relaxed">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
+
       <Section variant="surface" padding="default">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="badge px-3 py-1">Related Services</span>
+        <div className="text-center max-w-[42rem] mx-auto mb-12">
+          <span className="badge">Related Services</span>
           <h2 className="font-display font-heading text-heading-lg text-ink mt-4 mb-4">
             Explore More Treatments
           </h2>
@@ -145,7 +200,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
             .slice(0, 3)
             .map((related) => (
               <Link key={related.slug} href={`/services/${related.slug}`} className="group">
-                <div className="bg-surface-alt rounded-md overflow-hidden transition-shadow hover:shadow-lg">
+                <div className="bg-surface-alt rounded-md overflow-hidden transition-colors">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <OptimizedImage
                       src={related.image}
