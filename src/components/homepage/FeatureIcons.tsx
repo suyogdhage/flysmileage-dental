@@ -16,10 +16,10 @@ export const FeatureIcons = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
         {...props}
       >
         <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-lg gap-y-2xl sm:gap-2xl lg:gap-4xl">
             {clinicFeatures.map((feature) => (
               <article key={feature.title} className="text-center max-w-[18rem] mx-auto">
-                <div className="h-[52px] flex items-center justify-center mb-lg">
+                <div className="h-[44px] sm:h-[52px] flex items-center justify-center mb-base sm:mb-lg">
                   <OptimizedImage
                     src={feature.icon}
                     alt=""
@@ -28,10 +28,10 @@ export const FeatureIcons = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                     objectFit="contain"
                   />
                 </div>
-                <h3 className="font-display font-heading text-heading-sm text-ink mb-md">
+                <h3 className="font-display font-heading text-heading-sm text-ink mb-sm sm:mb-md">
                   {feature.title}
                 </h3>
-                <p className="text-body-sm text-muted">{feature.description}</p>
+                <p className="text-[13px] sm:text-body-sm leading-body text-muted">{feature.description}</p>
               </article>
             ))}
           </div>

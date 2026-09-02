@@ -34,21 +34,23 @@
   --spacing-4xl: 40px;
   --spacing-5xl: 50px;
   --spacing-6xl: 60px;
-  --spacing-section: 120px;
+  /* Fluid: sizes below are viewport-scaled so every section reflows on phones
+     without a per-component breakpoint. Upper bound = the original desktop value. */
+  --spacing-section: clamp(56px, 9vw, 120px);
 
-  --font-size-hero-display: 55px;
-  --font-size-heading-lg: 24px;
-  --font-size-heading-md: 24px;
-  --font-size-heading-sm: 22px;
+  --font-size-hero-display: clamp(32px, 7.2vw, 55px);
+  --font-size-heading-lg: clamp(20px, 3.4vw, 24px);
+  --font-size-heading-md: clamp(20px, 3.4vw, 24px);
+  --font-size-heading-sm: clamp(18px, 3vw, 22px);
   --font-size-button: 15px;
   --font-size-button-sm: 14px;
   --font-size-body: 16px;
-  --font-size-body-lg: 18px;
+  --font-size-body-lg: clamp(16px, 2.2vw, 18px);
   --font-size-body-sm: 14px;
   --font-size-body-tight: 16px;
-  --font-size-stat-display-lg: 100px;
-  --font-size-stat-display-md: 50px;
-  --font-size-stat-display-sm: 35px;
+  --font-size-stat-display-lg: clamp(52px, 12vw, 100px);
+  --font-size-stat-display-md: clamp(34px, 7vw, 50px);
+  --font-size-stat-display-sm: clamp(26px, 5vw, 35px);
 
   --line-height-hero-display: 1.2;
   --line-height-heading-lg: 1.25;
@@ -322,6 +324,38 @@
     max-width: 100%;
     height: auto;
     display: block;
+  }
+
+  /* `clip` rather than `hidden` so it never creates a scroll container and
+     break `position: sticky` descendants. Belt-and-braces against a stray
+     wide child pushing the page sideways on a phone. */
+  body {
+    overflow-x: clip;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  /* Long clinic/treatment names and URLs must not widen a narrow viewport. */
+  h1, h2, h3, h4, h5, h6, p, li, a {
+    overflow-wrap: break-word;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Buttons keep a comfortable tap target on touch screens. */
+@media (max-width: 767px) {
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 24px;
+    min-height: 44px;
   }
 }
 

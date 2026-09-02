@@ -16,9 +16,9 @@ export const Timeline = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement
         {...props}
       >
         <Container size="lg">
-          <div className="text-center mb-4xl">
+          <div className="text-center mb-2xl sm:mb-4xl">
             <span className="badge">Your Visit At</span>
-            <h2 className="mt-base font-display font-heading text-[40px] leading-[1.15] text-ink">
+            <h2 className="mt-base font-display font-heading text-[26px] sm:text-[34px] lg:text-[40px] leading-[1.15] text-ink">
               {clinic.name}
             </h2>
           </div>
@@ -94,10 +94,10 @@ export const Timeline = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement
             })}
           </ol>
 
-          <ol className="lg:hidden grid sm:grid-cols-2 gap-4xl" role="list">
+          <ol className="lg:hidden grid grid-cols-2 gap-x-lg gap-y-2xl sm:gap-4xl" role="list">
             {visitSteps.map((item) => (
               <li key={item.step} className="text-center">
-                <div className="w-[130px] h-[130px] mx-auto mb-lg flex items-center justify-center">
+                <div className="w-[92px] h-[92px] sm:w-[130px] sm:h-[130px] mx-auto mb-base sm:mb-lg flex items-center justify-center">
                   <OptimizedImage
                     src={item.image}
                     alt=""
@@ -110,7 +110,9 @@ export const Timeline = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement
                 <h3 className="font-display font-heading text-heading-sm text-ink mt-1">
                   {item.title}
                 </h3>
-                <p className="mt-md text-body-sm text-muted">{item.description}</p>
+                <p className="mt-sm sm:mt-md text-[13px] sm:text-body-sm leading-body text-muted">
+                  {item.description}
+                </p>
               </li>
             ))}
           </ol>

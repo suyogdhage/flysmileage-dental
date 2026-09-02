@@ -16,22 +16,22 @@ export const WhyChooseUs = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElem
         {...props}
       >
         <Container>
-          <div className="text-center max-w-[56rem] mx-auto mb-4xl">
+          <div className="text-center max-w-[56rem] mx-auto mb-2xl sm:mb-4xl">
             <span className="badge">Why</span>
-            <h2 className="mt-base font-display font-heading text-[40px] leading-[1.15] text-ink">
+            <h2 className="mt-base font-display font-heading text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] text-ink">
               Choose Us
             </h2>
             <p className="mt-lg text-body-sm text-muted">{whyChooseUs.intro}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-base sm:gap-2xl">
             {whyChooseUs.points.map((point) => (
               <article
                 key={point.title}
-                className="rounded-lg border border-muted/20 p-2xl bg-surface-alt"
+                className="rounded-lg border border-muted/20 p-lg sm:p-2xl bg-surface-alt"
               >
-                <div className="flex items-center gap-base pb-lg border-b border-muted/20">
-                  <span className="w-[52px] h-[52px] rounded-full bg-tertiary flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-base pb-base sm:pb-lg border-b border-muted/20">
+                  <span className="w-11 h-11 sm:w-[52px] sm:h-[52px] rounded-full bg-tertiary flex items-center justify-center shrink-0">
                     <OptimizedImage
                       src={point.icon}
                       alt=""
@@ -45,7 +45,7 @@ export const WhyChooseUs = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElem
                     {point.title}
                   </h3>
                 </div>
-                <p className="mt-lg text-body-sm text-muted">{point.description}</p>
+                <p className="mt-base sm:mt-lg text-body-sm text-muted">{point.description}</p>
               </article>
             ))}
           </div>

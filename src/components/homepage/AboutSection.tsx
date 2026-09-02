@@ -33,13 +33,15 @@ export const AboutSection = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
         </div>
 
         <Container>
-          <div className="grid lg:grid-cols-2 gap-4xl lg:gap-6xl items-start">
+          <div className="grid lg:grid-cols-2 gap-2xl md:gap-4xl lg:gap-6xl items-start">
             <div>
               <span className="badge">About Us</span>
 
-              <h2 className="mt-base font-display font-heading text-[40px] leading-[1.15] text-ink">
+              <h2 className="mt-base font-display font-heading text-[28px] sm:text-[34px] lg:text-[40px] leading-[1.15] text-ink">
                 Best Dental Clinic in
-                <br />
+                {/* The line break is a desktop typesetting choice; on a phone the
+                    heading should wrap naturally instead. */}
+                <br className="hidden sm:block" />{" "}
                 Pune
               </h2>
 
@@ -47,9 +49,9 @@ export const AboutSection = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                 {clinic.tagline}
               </p>
 
-              <div className="mt-4xl flex flex-wrap items-center gap-2xl">
+              <div className="mt-2xl sm:mt-4xl flex flex-wrap items-center gap-lg sm:gap-2xl">
                 <a href={clinic.phoneHref} className="flex items-center gap-md group">
-                  <span className="w-[52px] h-[52px] rounded-full border border-primary/40 flex items-center justify-center shrink-0">
+                  <span className="w-11 h-11 sm:w-[52px] sm:h-[52px] rounded-full border border-primary/40 flex items-center justify-center shrink-0">
                     <MessageSquareMore className="w-6 h-6 text-primary" aria-hidden="true" />
                   </span>
                   <span className="flex flex-col leading-tight">
@@ -64,7 +66,7 @@ export const AboutSection = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
 
                 <Link
                   href="/#why-choose-us"
-                  className="inline-flex items-center gap-2 rounded-pill border border-primary px-[30px] py-[12px] font-display font-heading text-button tracking-button text-primary transition-colors hover:bg-primary hover:text-on-primary"
+                  className="inline-flex min-h-[44px] items-center gap-2 rounded-pill border border-primary px-[26px] sm:px-[30px] py-[12px] font-display font-heading text-button tracking-button text-primary transition-colors hover:bg-primary hover:text-on-primary"
                 >
                   Read More
                   <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
@@ -79,7 +81,7 @@ export const AboutSection = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
 
               <p className="mt-lg text-body-sm text-muted">{lead}</p>
 
-              <ul className="mt-2xl grid sm:grid-cols-2 gap-x-2xl gap-y-lg" role="list">
+              <ul className="mt-xl sm:mt-2xl grid sm:grid-cols-2 gap-x-2xl gap-y-base sm:gap-y-lg" role="list">
                 {checklist.map((promise) => (
                   <li key={promise} className="flex gap-md">
                     <BadgeCheck

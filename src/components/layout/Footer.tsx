@@ -30,7 +30,7 @@ export const Footer = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>
     return (
       <footer ref={ref} className={cn("bg-surface text-ink", className)} {...props}>
         <Container className="py-section">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             <div>
               <h3 className="font-display font-heading text-heading-sm mb-4">
                 Advanced Dental
@@ -40,7 +40,7 @@ export const Footer = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>
               <div className="flex flex-col gap-3">
                 <a
                   href={clinic.phoneHref}
-                  className="footer-link flex items-center gap-3 hover:text-primary transition-colors"
+                  className="footer-link flex min-h-[44px] items-center gap-3 hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
                   <span>{clinic.phone}</span>
@@ -74,7 +74,7 @@ export const Footer = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>
               <h3 className="font-display font-heading text-heading-sm mb-6">Treatments</h3>
               <ul className="space-y-3" role="list">
                 {treatmentLinks.map((link) => (
-                  <li key={link.label} className="footer-link inline-block text-ink">
+                  <li key={link.label} className="footer-link block text-ink">
                     {link.label}
                   </li>
                 ))}
@@ -99,11 +99,11 @@ export const Footer = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-muted/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="mt-10 md:mt-12 pt-8 border-t border-muted/20 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
             <p className="text-body-sm text-muted">
               © {new Date().getFullYear()} {clinic.name}. All Rights Reserved.
             </p>
-            <div className="flex items-center gap-6 text-body-sm text-muted">
+            <div className="flex flex-wrap justify-center md:justify-end items-center gap-x-6 gap-y-2 text-body-sm text-muted">
               <Link href="/terms" className="hover:text-primary transition-colors">
                 Terms and conditions
               </Link>

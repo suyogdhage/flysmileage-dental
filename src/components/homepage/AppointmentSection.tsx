@@ -11,7 +11,7 @@ import { appointment, clinic } from "@/content/clinic";
 const SUM = { a: 10, b: 7 };
 
 const fieldClasses =
-  "w-full rounded-pill bg-surface-alt px-lg py-md text-body-sm text-ink placeholder-muted border border-transparent focus:outline-none focus:ring-2 focus:ring-ink";
+  "w-full min-h-[48px] rounded-pill bg-surface-alt px-base sm:px-lg py-md text-[16px] text-ink placeholder-muted border border-transparent focus:outline-none focus:ring-2 focus:ring-ink";
 
 export const AppointmentSection = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   ({ className, ...props }, ref) => {
@@ -39,8 +39,8 @@ export const AppointmentSection = forwardRef<HTMLElement, React.HTMLAttributes<H
         {...props}
       >
         <Container size="lg">
-          <div className="grid lg:grid-cols-2 gap-2xl items-stretch">
-            <div className="relative min-h-[320px] rounded-lg overflow-hidden">
+          <div className="grid lg:grid-cols-2 gap-lg lg:gap-2xl items-stretch">
+            <div className="relative min-h-[220px] sm:min-h-[280px] lg:min-h-[320px] rounded-lg overflow-hidden">
               <OptimizedImage
                 src={appointment.image}
                 alt={`${clinic.name} reception taking an appointment call`}
@@ -50,16 +50,16 @@ export const AppointmentSection = forwardRef<HTMLElement, React.HTMLAttributes<H
               />
             </div>
 
-            <div className="bg-primary rounded-lg p-2xl md:p-4xl">
+            <div className="bg-primary rounded-lg p-lg sm:p-2xl md:p-4xl">
               <span className="inline-flex items-center rounded-pill bg-surface-alt px-[10px] py-[5px] font-display font-heading text-button-sm tracking-button uppercase text-ink">
                 {appointment.eyebrow}
               </span>
 
-              <h2 className="mt-lg font-display font-heading text-[32px] leading-[1.2] text-on-primary">
+              <h2 className="mt-base sm:mt-lg font-display font-heading text-[24px] sm:text-[28px] lg:text-[32px] leading-[1.2] text-on-primary">
                 {appointment.headline}
               </h2>
 
-              <form onSubmit={onSubmit} className="mt-2xl grid sm:grid-cols-2 gap-base">
+              <form onSubmit={onSubmit} className="mt-xl sm:mt-2xl grid grid-cols-1 sm:grid-cols-2 gap-md sm:gap-base">
                 <label className="sr-only" htmlFor="ap-first">First Name</label>
                 <input id="ap-first" name="firstName" placeholder="First Name" required className={fieldClasses} />
 
@@ -90,10 +90,10 @@ export const AppointmentSection = forwardRef<HTMLElement, React.HTMLAttributes<H
                   rows={3}
                   placeholder="Write a message*"
                   required
-                  className={cn(fieldClasses, "sm:col-span-2 rounded-lg")}
+                  className={cn(fieldClasses, "sm:col-span-2 rounded-lg resize-y")}
                 />
 
-                <div className="sm:col-span-2 flex flex-wrap items-center gap-base">
+                <div className="sm:col-span-2 flex flex-wrap items-center gap-md sm:gap-base">
                   <label htmlFor="ap-captcha" className="font-display font-heading text-body-sm text-on-primary">
                     What is {SUM.a} + {SUM.b}?
                   </label>
@@ -103,7 +103,7 @@ export const AppointmentSection = forwardRef<HTMLElement, React.HTMLAttributes<H
                     inputMode="numeric"
                     placeholder="Answer"
                     required
-                    className={cn(fieldClasses, "max-w-[12rem]")}
+                    className={cn(fieldClasses, "w-auto max-w-[8rem] flex-1 sm:flex-none")}
                   />
                 </div>
 
@@ -118,7 +118,7 @@ export const AppointmentSection = forwardRef<HTMLElement, React.HTMLAttributes<H
 
                 <button
                   type="submit"
-                  className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-pill bg-ink px-[30px] py-[14px] font-display font-heading text-button tracking-button text-on-primary transition-opacity hover:opacity-90"
+                  className="sm:col-span-2 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-pill bg-ink px-[30px] py-[14px] font-display font-heading text-button tracking-button text-on-primary transition-opacity hover:opacity-90"
                 >
                   Send
                   <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
