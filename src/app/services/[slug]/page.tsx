@@ -14,9 +14,9 @@ export async function generateMetadata({
 }: ServiceDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
-  if (!service) return { title: "Service Not Found | Fly Dental Clinic" };
+  if (!service) return { title: "Service Not Found | Advanced Dental Clinic by Dr. Garde" };
   return {
-    title: `${service.title} | Fly Dental Clinic`,
+    title: `${service.title} | Advanced Dental Clinic by Dr. Garde`,
     description: service.shortDescription,
   };
 }

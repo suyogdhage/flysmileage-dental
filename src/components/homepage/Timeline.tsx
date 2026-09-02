@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { OptimizedImage } from "@/components/common/Image";
-import { visitSteps } from "@/content/clinic";
+import { clinic, visitSteps } from "@/content/clinic";
 
 export const Timeline = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   ({ className, ...props }, ref) => {
@@ -19,7 +19,7 @@ export const Timeline = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement
           <div className="text-center mb-4xl">
             <span className="badge">Your Visit At</span>
             <h2 className="mt-base font-display font-heading text-[40px] leading-[1.15] text-ink">
-              Fly Dental
+              {clinic.name}
             </h2>
           </div>
 

@@ -42,7 +42,7 @@ export const ServicesPageContent = forwardRef<HTMLDivElement, React.HTMLAttribut
             const Icon = serviceIcons[service.slug] ?? CircleDot;
             return (
             <article key={service.slug} className="group">
-              <Link href={`/services/${service.slug}`} className="block">
+              <div className="block">
                 <Card variant="elevated" className="h-full transition-colors duration-200">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-md mb-4 group-hover:scale-[1.02] transition-transform duration-300">
                     <OptimizedImage
@@ -66,7 +66,7 @@ export const ServicesPageContent = forwardRef<HTMLDivElement, React.HTMLAttribut
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </div>
                 </Card>
-              </Link>
+              </div>
             </article>
             );
           })}
@@ -80,7 +80,7 @@ export const ServicesPageContent = forwardRef<HTMLDivElement, React.HTMLAttribut
             Schedule your consultation today and discover why thousands of patients trust us with their smiles.
           </p>
           <Button variant="primary" size="default" asChild>
-            <Link href="/contact">Book Your Appointment</Link>
+            <Link href="/#appointment">Book Your Appointment</Link>
           </Button>
         </div>
       </div>

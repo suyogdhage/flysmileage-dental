@@ -4,8 +4,9 @@ import { Footer } from "@/components/layout/Footer";
 import { AboutContent } from "@/components/about/AboutContent";
 
 export const metadata: Metadata = {
-  title: "About Us | Fly Dental Clinic",
-  description: "Learn about Fly Dental Clinic's personalized approach to dental care — 17+ years of experience across three Pune clinics.",
+  title: "About Us | Advanced Dental Clinic by Dr. Garde",
+  description:
+    "Learn about the personalized approach to dental care at Advanced Dental Clinic by Dr. Garde in Pune.",
 };
 
 export default function AboutPage() {

@@ -1,4 +1,4 @@
-// Treatment content sourced from https://flysmileage.com (Fly Dental Clinic, Pune).
+// Treatment content sourced from https://flysmileage.com (Advanced Dental Clinic by Dr. Garde, Pune).
 
 export interface ServiceSection {
   heading: string;
@@ -33,7 +33,7 @@ export const services: Service[] = [
     shortDescription:
       "Root canal treatment relieves pain and saves your tooth, restoring comfort and your natural smile.",
     fullDescription:
-      "Are you struggling with tooth pain or discomfort? Unsure about the process or cost of a root canal? At Fly Dental Clinic, we make your dental journey stress-free with root canal treatment in Salisbury Park. A root canal treatment addresses infections in the tooth pulp — the innermost layer responsible for keeping your tooth alive. With our expert care, we ensure a comfortable and efficient root canal experience.",
+      "Are you struggling with tooth pain or discomfort? Unsure about the process or cost of a root canal? At Advanced Dental Clinic by Dr. Garde, we make your dental journey stress-free with root canal treatment in Pune. A root canal treatment addresses infections in the tooth pulp — the innermost layer responsible for keeping your tooth alive. With our expert care, we ensure a comfortable and efficient root canal experience.",
     icon: "activity",
     iconImage: "/images/flysmileage/icons/root-canal-treatemnt.png",
     image: "/images/flysmileage/root-canal-treatemnt.jpg",
@@ -88,7 +88,7 @@ export const services: Service[] = [
       },
       {
         heading: "Re-RCT (Repeat Root Canal Treatment)",
-        body: "A re-root canal treatment (Re-RCT) is necessary when a previously treated tooth develops an infection or other complications. This procedure involves reopening the tooth, removing any residual or new infection, and resealing the canal. At Fly Dental Clinic, we specialize in precise Re-RCT to restore your tooth's health effectively.",
+        body: "A re-root canal treatment (Re-RCT) is necessary when a previously treated tooth develops an infection or other complications. This procedure involves reopening the tooth, removing any residual or new infection, and resealing the canal. At Advanced Dental Clinic by Dr. Garde, we specialize in precise Re-RCT to restore your tooth's health effectively.",
       },
     ],
     faqs: [
@@ -115,7 +115,7 @@ export const services: Service[] = [
     shortDescription:
       "Comprehensive care for healthy teeth, gums, and a beautiful smile keeping you confident and pain-free.",
     fullDescription:
-      "General dentistry is the foundation of every healthy smile. At Fly Dental Clinic we cover the everyday essentials — check-ups, cleaning, fillings, gum care and preventive treatment — so problems are caught early and your teeth stay comfortable and functional for life.",
+      "General dentistry is the foundation of every healthy smile. At Advanced Dental Clinic by Dr. Garde, we cover the everyday essentials — check-ups, cleaning, fillings, gum care and preventive treatment — so problems are caught early and your teeth stay comfortable and functional for life.",
     icon: "circle-dot",
     iconImage: "/images/flysmileage/icons/general-dentistry.png",
     image: "/images/flysmileage/general-dentistry.jpg",
@@ -169,7 +169,7 @@ export const services: Service[] = [
     shortDescription:
       "Dental implants replace missing teeth, restoring function & aesthetics for a natural-looking smile.",
     fullDescription:
-      "Are you missing a tooth and looking for a long-lasting solution to restore your smile? At Fly Dental Clinic, we offer an excellent option to replace missing teeth and bring back the confidence in your smile with dental implants in Salisbury Park, offering customized care tailored to your needs.",
+      "Are you missing a tooth and looking for a long-lasting solution to restore your smile? At Advanced Dental Clinic by Dr. Garde, we offer an excellent option to replace missing teeth and bring back the confidence in your smile with dental implants in Pune, offering customized care tailored to your needs.",
     icon: "stethoscope",
     iconImage: "/images/flysmileage/icons/implants.png",
     image: "/images/flysmileage/implants.jpg",
@@ -199,7 +199,7 @@ export const services: Service[] = [
         ],
       },
       {
-        heading: "The Dental Implant Process at Fly Dental",
+        heading: "The Dental Implant Process at Our Clinic",
         bullets: [
           "Consultation: During your first visit, we'll evaluate your oral health, take X-rays, and discuss your treatment plan.",
           "Implant Placement: The titanium post is surgically placed into your jawbone under local anesthesia. This process is painless and typically takes one visit.",
@@ -247,7 +247,7 @@ export const services: Service[] = [
     shortDescription:
       "Transform your smile with customized treatments, enhancing beauty and confidence in every smile.",
     fullDescription:
-      "Are you looking to enhance your smile's appearance and boost your confidence? At Fly Dental Clinic, we offer smile makeover in Salisbury Park, utilizing digital smile designing to help you achieve the smile of your dreams.",
+      "Are you looking to enhance your smile's appearance and boost your confidence? At Advanced Dental Clinic by Dr. Garde, we offer smile makeover in Pune, utilizing digital smile designing to help you achieve the smile of your dreams.",
     icon: "sparkles",
     iconImage: "/images/flysmileage/icons/smile-makeover.png",
     image: "/images/flysmileage/smile-makeover.jpg",
@@ -365,7 +365,7 @@ export const services: Service[] = [
     shortDescription:
       "Braces straighten teeth and perfect your bite, giving you a confident, healthy smile for life.",
     fullDescription:
-      "A confident, beautiful smile begins with well-aligned teeth. At Fly Dental Clinic, we offer expert braces treatment in Salisbury Park tailored to your unique dental needs. Whether you're considering traditional metal braces or more discreet ceramic braces, our skilled dentist will ensure the best solution for your smile transformation.",
+      "A confident, beautiful smile begins with well-aligned teeth. At Advanced Dental Clinic by Dr. Garde, we offer expert braces treatment in Pune tailored to your unique dental needs. Whether you're considering traditional metal braces or more discreet ceramic braces, our skilled dentist will ensure the best solution for your smile transformation.",
     icon: "waypoints",
     iconImage: "/images/flysmileage/icons/braces.png",
     image: "/images/flysmileage/braces.jpg",
@@ -416,7 +416,7 @@ export const services: Service[] = [
       {
         question: "How long does braces treatment take?",
         answer:
-          "The duration varies based on the complexity of the case, but most people wear braces for 18 to 24 months. At Fly Dental, we will give you a personalized plan with a timeline.",
+          "The duration varies based on the complexity of the case, but most people wear braces for 18 to 24 months. At Advanced Dental Clinic by Dr. Garde, we will give you a personalized plan with a timeline.",
       },
       {
         question: "Are ceramic braces as effective as traditional metal braces?",
@@ -436,7 +436,7 @@ export const services: Service[] = [
     shortDescription:
       "Professional cleaning removes plaque and tartar brushing can't reach, protecting teeth and gums.",
     fullDescription:
-      "At Fly Dental Clinic, we prioritize your oral health by offering expert teeth cleaning in Salisbury Park. Regular teeth cleaning is essential to maintain a healthy smile, prevent cavities, and protect against gum disease. With our advanced techniques and gentle care, we make sure your dental hygiene stays top-notch.",
+      "At Advanced Dental Clinic by Dr. Garde, we prioritize your oral health by offering expert teeth cleaning in Pune. Regular teeth cleaning is essential to maintain a healthy smile, prevent cavities, and protect against gum disease. With our advanced techniques and gentle care, we make sure your dental hygiene stays top-notch.",
     icon: "circle-dot",
     iconImage: "/images/flysmileage/icons/general-dentistry.png",
     image: "/images/flysmileage/Teeth-Cleaning.jpg",
@@ -489,7 +489,7 @@ export const services: Service[] = [
     shortDescription:
       "Thin custom-made shells that correct chipped, discoloured or uneven teeth for a flawless smile.",
     fullDescription:
-      "Are you dreaming of a flawless, confident smile? At Fly Dental Clinic, we offer dental veneers in Salisbury Park, a simple yet transformative solution to enhance the appearance of your teeth. Whether you have chipped, discolored, or uneven teeth, veneers can give you the smile you've always desired.",
+      "Are you dreaming of a flawless, confident smile? At Advanced Dental Clinic by Dr. Garde, we offer dental veneers in Pune, a simple yet transformative solution to enhance the appearance of your teeth. Whether you have chipped, discolored, or uneven teeth, veneers can give you the smile you've always desired.",
     icon: "sparkles",
     iconImage: "/images/flysmileage/icons/smile-makeover.png",
     image: "/images/flysmileage/Veneers.jpg",
@@ -563,7 +563,7 @@ export const services: Service[] = [
     shortDescription:
       "Gentle, personalized pediatric dentistry that keeps children comfortable and builds lifelong habits.",
     fullDescription:
-      "At Fly Dental Clinic, we understand that every child deserves a happy and healthy smile. Our kids dental care in Salisbury Park provides gentle, personalized care to ensure your little ones feel comfortable and safe during every visit.",
+      "At Advanced Dental Clinic by Dr. Garde, we understand that every child deserves a happy and healthy smile. Our kids dental care in Pune provides gentle, personalized care to ensure your little ones feel comfortable and safe during every visit.",
     icon: "baby",
     iconImage: "/images/flysmileage/icons/braces.png",
     image: "/images/flysmileage/Kids-Dental-Care.jpg",
@@ -600,7 +600,7 @@ export const services: Service[] = [
         ],
       },
       {
-        heading: "Why Choose Fly Dental for Your Kids",
+        heading: "Why Choose Us for Your Kids",
         bullets: [
           "Child-Friendly Environment: We ensure your little one feels at ease from the moment they step in.",
           "Education First: We teach kids and parents the importance of good oral hygiene in a fun and engaging way.",

@@ -1,23 +1,18 @@
-// Content sourced from https://flysmileage.com (Fly Dental Clinic, Pune).
+// Clinic content for Advanced Dental Clinic by Dr. Garde.
 
 export const clinic = {
-  name: "Fly Dental Clinic",
-  brand: "Fly Smileage",
+  name: "Advanced Dental Clinic by Dr. Garde",
+  brand: "Advanced Dental Clinic by Dr. Garde",
   tagline: "We Listen, We Care",
   logo: "/images/flysmileage/fly-new-smileage-logo.png",
-  phone: "+91 976 747 1117",
-  phoneHref: "tel:+919767471117",
-  whatsappHref: "https://wa.me/919767471117",
-  email: "info@flysmileage.com",
-  emailHref: "mailto:info@flysmileage.com",
-  primaryLocation: "Salisbury Park, Gultekadi, Pune",
-  socials: [
-    { label: "Facebook", href: "https://www.facebook.com/" },
-    { label: "Instagram", href: "https://www.instagram.com/" },
-    { label: "YouTube", href: "https://www.youtube.com/" },
-  ],
+  phone: "020 2421 3708",
+  phoneHref: "tel:+912024213708",
+  whatsappHref: "https://wa.me/912024213708",
+  primaryLocation:
+    "106, Decision Tower, Next To City Pride Cinema, Opposite Bhapkar Petrol Pump, Pune Satara Road, Pune, Maharashtra 411037",
+  socials: [],
   intro:
-    "At Fly Dental, with over 17 years of experience, we take a personalized approach to your dental care. Our team is dedicated to understanding your unique dental concerns, medical history, and lifestyle, ensuring each treatment is tailored to your needs. We're committed to delivering the highest standard of care, making your smile our priority.",
+    "At Advanced Dental Clinic by Dr. Garde, we take a personalized approach to your dental care. Our team is dedicated to understanding your unique dental concerns, medical history, and lifestyle, ensuring each treatment is tailored to your needs. We're committed to delivering the highest standard of care, making your smile our priority.",
 } as const;
 
 export interface Branch {
@@ -28,30 +23,18 @@ export interface Branch {
 
 export const branches: Branch[] = [
   {
-    label: "Branch I",
-    area: "Salisbury Park",
+    label: "Advanced Dental Clinic",
+    area: "Pune Satara Road",
     address:
-      "Shop No G-39, Mantri Estate, near Gultekadi, Salisbury Park, Gultekadi, Pune, Maharashtra 411037",
-  },
-  {
-    label: "Branch II",
-    area: "Raviwar Peth",
-    address:
-      "Shop No.1/2, Vitthal Rukhmani Complex, below lifeline diagnostic center, Mahatma Phule Road, Raviwar Peth, Pune, Maharashtra 411002",
-  },
-  {
-    label: "Branch III",
-    area: "Bibwewadi",
-    address:
-      "Gajara Housing Society Shop #4, Swami Vivekanand Rd, Near Bharat Jyoti Bus Stop, Bibwewadi, Pune, Maharashtra 411037",
+      "106, Decision Tower, Next To City Pride Cinema, Opposite Bhapkar Petrol Pump, Pune Satara Road, Pune, Maharashtra 411037",
   },
 ];
 
 export const stats = [
   { value: "21K+", label: "Happy Smiles" },
   { value: "1000+", label: "Full Jaw Treatment" },
-  { value: "17+", label: "Year of Experience" },
-  { value: "3+", label: "Number Of Centers" },
+  { value: "Trusted", label: "Dental Care" },
+  { value: "1", label: "Clinic" },
 ];
 
 export const heroSlides = [
@@ -59,14 +42,14 @@ export const heroSlides = [
     eyebrow: "Root Canal Treatment",
     title: "Pain Gone,",
     highlight: "Smile On",
-    href: "/services/root-canal-treatment",
+    href: "/#appointment",
     image: "/images/flysmileage/Pain-Gone-Smile-On.jpg",
   },
   {
     eyebrow: "General Dentistry",
     title: "Your Smile,",
     highlight: "Our Care",
-    href: "/services/general-dentistry",
+    href: "/#appointment",
     image: "/images/flysmileage/Your-Smile-Our-Care.jpg",
   },
 ];

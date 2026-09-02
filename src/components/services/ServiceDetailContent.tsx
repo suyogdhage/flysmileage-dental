@@ -17,7 +17,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
     <div>
       <Section variant="surface" padding="default">
         <Link
-          href="/services"
+          href="/#services"
           className="inline-flex items-center gap-2 text-button text-primary font-display font-heading mb-8 hover:gap-3 transition-all"
         >
           <ArrowLeft className="w-4 h-4" aria-hidden="true" />
@@ -49,7 +49,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="primary" asChild>
-                <Link href="/contact">Book An Appointment</Link>
+                <Link href="/#appointment">Book An Appointment</Link>
               </Button>
               <Button variant="secondary" asChild>
                 <a href={clinic.phoneHref}>Call {clinic.phone}</a>
@@ -125,7 +125,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
               </p>
             </div>
             <Button variant="primary" fullWidth className="mt-4" asChild>
-              <Link href="/contact">
+              <Link href="/#appointment">
                 Schedule Your Consultation <ArrowRight className="w-4 h-4 ml-1" aria-hidden="true" />
               </Link>
             </Button>
@@ -199,7 +199,7 @@ export function ServiceDetailContent({ service }: ServiceDetailContentProps) {
             .filter((s) => s.slug !== service.slug)
             .slice(0, 3)
             .map((related) => (
-              <Link key={related.slug} href={`/services/${related.slug}`} className="group">
+              <Link key={related.slug} href="/#services" className="group">
                 <div className="bg-surface-alt rounded-md overflow-hidden transition-colors">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <OptimizedImage

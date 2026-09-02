@@ -1,6 +1,6 @@
-// Blog titles and images sourced from https://flysmileage.com (Fly Dental Clinic, Pune).
-// The live site publishes these four posts with placeholder body copy, so the article
-// bodies below are written from Fly Dental's own treatment-page content.
+// Blog titles and blog images sourced from the original clinic website.
+// The live site publishes these four posts with placeholder body copy, so the
+// article bodies below are written from the clinic's treatment-page content.
 
 export interface BlogPost {
   slug: string;
@@ -41,7 +41,7 @@ export const blogPosts: BlogPost[] = [
       <h3>Treatment Is Staged, Not Rushed</h3>
       <p>FMR is never done all at once. Each phase — implants, crowns and bridges, root canal treatment where required, bite correction, then cosmetic finishing — is allowed to heal properly before the next begins. Follow-up care protects the result for the long term.</p>
 
-      <p><strong>Ready to rebuild your smile?</strong> Book a consultation at Fly Dental Clinic and we'll walk you through what your mouth actually needs.</p>
+      <p><strong>Ready to rebuild your smile?</strong> Book a consultation at our clinic and we'll walk you through what your mouth actually needs.</p>
     `,
     author: "Dr. Priyal Shah",
     authorSlug: "dr-priyal-shah",
@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
       <p>Regular dental visits let us treat small problems while they are still small. Preventive care keeps treatment simpler, more comfortable and more affordable than waiting for pain to appear.</p>
 
       <h3>Care for the Whole Family</h3>
-      <p>Fly Dental is a family practice, from children to adults. Our welcoming environment, modern facility and advanced treatment options mean everyone in the household can be seen in one place.</p>
+      <p>Our clinic is a family practice, from children to adults. Our welcoming environment, modern facility and advanced treatment options mean everyone in the household can be seen in one place.</p>
 
       <p><strong>How often should you come in?</strong> Most people benefit from a professional check-up and cleaning every six months. We'll tell you if your mouth needs a different schedule.</p>
     `,

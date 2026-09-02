@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { OptimizedImage } from "@/components/common/Image";
 import { ArrowUpRight } from "lucide-react";
-import { appointment } from "@/content/clinic";
+import { appointment, clinic } from "@/content/clinic";
 
 // The live site guards its form with a simple arithmetic question.
 const SUM = { a: 10, b: 7 };
@@ -43,7 +43,7 @@ export const AppointmentSection = forwardRef<HTMLElement, React.HTMLAttributes<H
             <div className="relative min-h-[320px] rounded-lg overflow-hidden">
               <OptimizedImage
                 src={appointment.image}
-                alt="Fly Dental reception taking an appointment call"
+                alt={`${clinic.name} reception taking an appointment call`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

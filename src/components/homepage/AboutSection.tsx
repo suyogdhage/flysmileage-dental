@@ -40,7 +40,7 @@ export const AboutSection = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               <h2 className="mt-base font-display font-heading text-[40px] leading-[1.15] text-ink">
                 Best Dental Clinic in
                 <br />
-                Salisbury Park
+                Pune
               </h2>
 
               <p className="mt-md font-display font-heading text-heading-sm text-ink">
@@ -57,13 +57,13 @@ export const AboutSection = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
                       Call Us Now
                     </span>
                     <span className="font-display font-heading text-heading-sm text-ink group-hover:text-primary transition-colors">
-                      +91 - 976 747 1117
+                      {clinic.phone}
                     </span>
                   </span>
                 </a>
 
                 <Link
-                  href="/about"
+                  href="/#why-choose-us"
                   className="inline-flex items-center gap-2 rounded-pill border border-primary px-[30px] py-[12px] font-display font-heading text-button tracking-button text-primary transition-colors hover:bg-primary hover:text-on-primary"
                 >
                   Read More

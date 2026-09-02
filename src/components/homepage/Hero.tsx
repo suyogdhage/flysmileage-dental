@@ -5,7 +5,7 @@ import Link from "next/link";
 import { OptimizedImage } from "@/components/common/Image";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
-import { heroSlides } from "@/content/clinic";
+import { clinic, heroSlides } from "@/content/clinic";
 
 const ROTATE_MS = 6000;
 
@@ -30,7 +30,7 @@ export const Hero = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
         ref={ref}
         id="hero"
         aria-roledescription="carousel"
-        aria-label="Fly Dental treatments"
+        aria-label={`${clinic.name} treatments`}
         className={cn("bg-surface-alt px-lg lg:px-4xl pt-lg pb-lg", className)}
         {...props}
       >

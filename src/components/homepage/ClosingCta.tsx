@@ -32,7 +32,7 @@ export const ClosingCta = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEleme
                     {closingCta.headline}
                   </h2>
                   <Link
-                    href="/contact"
+                    href="/#appointment"
                     className="mt-2xl inline-flex items-center gap-2 rounded-pill bg-ink px-[30px] py-[12px] font-display font-heading text-button tracking-button text-on-primary transition-colors hover:bg-primary"
                   >
                     {closingCta.cta}

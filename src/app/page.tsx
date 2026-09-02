@@ -10,7 +10,6 @@ import { WhyChooseUs } from "@/components/homepage/WhyChooseUs";
 import { AppointmentSection } from "@/components/homepage/AppointmentSection";
 import { Testimonials } from "@/components/homepage/Testimonials";
 import { ClosingCta } from "@/components/homepage/ClosingCta";
-import { BlogStrip } from "@/components/homepage/BlogStrip";
 
 export default function Home() {
   return (
@@ -27,7 +26,6 @@ export default function Home() {
         <AppointmentSection />
         <Testimonials />
         <ClosingCta />
-        <BlogStrip />
       </main>
       <Footer />
     </div>

@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { MapPin, Phone, Mail, MessageCircle, CheckCircle2, AlertCircle } from "lucide-react";
+import { MapPin, Phone, MessageCircle, CheckCircle2, AlertCircle } from "lucide-react";
 import { clinic, branches } from "@/content/clinic";
 
 const contactSchema = z.object({
@@ -84,7 +84,6 @@ export function ContactContent() {
             {[
               { icon: Phone, label: "Call Us Now", value: clinic.phone, href: clinic.phoneHref },
               { icon: MessageCircle, label: "WhatsApp", value: "Message us on WhatsApp", href: clinic.whatsappHref },
-              { icon: Mail, label: "Email", value: clinic.email, href: clinic.emailHref },
             ].map((item) => (
               <a
                 key={item.label}
@@ -106,7 +105,7 @@ export function ContactContent() {
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6 text-primary" aria-hidden="true" />
                 </div>
-                <h3 className="font-display font-heading text-heading-sm text-ink">Our Clinics</h3>
+                <h3 className="font-display font-heading text-heading-sm text-ink">Our Clinic</h3>
               </div>
               <ul className="space-y-5" role="list">
                 {branches.map((branch) => (

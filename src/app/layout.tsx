@@ -17,14 +17,16 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "Best Dentist in Salisbury Park | Fly Dental Clinic, Pune",
-  description: "Fly Dental Clinic — over 17 years of personalized dental care in Salisbury Park, Raviwar Peth and Bibwewadi, Pune. We Listen, We Care. Book your appointment today.",
+  title: "Best Dentist in Pune | Advanced Dental Clinic by Dr. Garde",
+  description:
+    "Advanced Dental Clinic by Dr. Garde offers personalized, expert dental care in Pune — root canal treatment, implants, braces, smile makeover and more. We Listen, We Care. Book your appointment today.",
   openGraph: {
-    title: "Fly Dental Clinic | Best Dental Clinic in Salisbury Park",
-    description: "Personalized dental care across three Pune clinics — root canal, implants, braces, smile makeover and more.",
+    title: "Advanced Dental Clinic by Dr. Garde | Dental Clinic in Pune",
+    description:
+      "Expert, personalized dental care in Pune — root canal, implants, braces, smile makeover and more.",
     type: "website",
     locale: "en_IN",
-    siteName: "Fly Dental Clinic",
+    siteName: "Advanced Dental Clinic by Dr. Garde",
   },
 };
 

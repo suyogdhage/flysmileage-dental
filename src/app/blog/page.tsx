@@ -4,8 +4,9 @@ import { Footer } from "@/components/layout/Footer";
 import { BlogContent } from "@/components/blog/BlogContent";
 
 export const metadata: Metadata = {
-  title: "Blog | Fly Dental Clinic",
-  description: "Dental advice and oral health tips from the team at Fly Dental Clinic, Pune.",
+  title: "Blog | Advanced Dental Clinic by Dr. Garde",
+  description:
+    "Dental advice and oral health tips from the team at Advanced Dental Clinic by Dr. Garde, Pune.",
 };
 
 export default function BlogPage() {

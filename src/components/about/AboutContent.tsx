@@ -22,7 +22,7 @@ export function AboutContent() {
               <span className="badge">About Us</span>
             </div>
             <h1 className="font-display font-heading text-hero-display text-ink mb-6">
-              Best Dental Clinic in <span className="text-primary">Salisbury Park</span>
+              Best Dental Clinic in <span className="text-primary">Pune</span>
             </h1>
             <p className="text-body-lg text-muted mb-6 leading-relaxed">{clinic.intro}</p>
             <p className="font-display font-heading text-heading-sm text-ink mb-8">
@@ -40,7 +40,7 @@ export function AboutContent() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="primary" asChild>
-                <Link href="/contact">Book An Appointment</Link>
+                <Link href="/#appointment">Book An Appointment</Link>
               </Button>
               <Button variant="secondary" asChild>
                 <a href={clinic.phoneHref}>Call {clinic.phone}</a>
@@ -52,7 +52,7 @@ export function AboutContent() {
             <div className="aspect-[4/3] rounded-lg overflow-hidden">
               <OptimizedImage
                 src="/images/flysmileage/about-clinic.jpg"
-                alt="Inside Fly Dental Clinic, Salisbury Park"
+                alt={`Inside ${clinic.name}, Pune`}
                 fill
                 priority
                 className="object-cover"
@@ -110,7 +110,7 @@ export function AboutContent() {
           </div>
 
           <div className="bg-surface rounded-lg p-8">
-            <h3 className="font-display font-heading text-heading-md text-ink mb-6">Our Clinics</h3>
+            <h3 className="font-display font-heading text-heading-md text-ink mb-6">Our Clinic</h3>
             <ul className="space-y-6">
               {branches.map((branch) => (
                 <li key={branch.label} className="flex gap-3">
@@ -125,7 +125,7 @@ export function AboutContent() {
               ))}
             </ul>
             <Button variant="primary" fullWidth className="mt-8" asChild>
-              <Link href="/contact">Book An Appointment</Link>
+              <Link href="/#appointment">Book An Appointment</Link>
             </Button>
           </div>
         </div>

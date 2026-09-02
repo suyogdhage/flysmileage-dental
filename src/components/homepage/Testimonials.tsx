@@ -48,7 +48,7 @@ export const Testimonials = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEle
               {closingCta.headline}
             </h2>
             <Button variant="primary" asChild>
-              <Link href="/contact">{closingCta.cta}</Link>
+              <Link href="/#appointment">{closingCta.cta}</Link>
             </Button>
           </div>
       </Container>

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Section } from "@/components/ui/Section";
 import { OptimizedImage } from "@/components/common/Image";
 import { blogPosts, blogCategories } from "@/content/blog";
+import { clinic } from "@/content/clinic";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 function formatDate(dateString: string): string {
@@ -105,10 +106,14 @@ export function BlogContent() {
             Have a Question We Should Cover?
           </h2>
           <p className="text-body text-muted mb-6 max-w-[36rem] mx-auto">
-            Email us at <a href="mailto:info@flysmileage.com" className="text-primary font-medium underline underline-offset-2">info@flysmileage.com</a> — we love hearing what&apos;s on your mind.
+            Prefer to talk it through? Call us at{" "}
+            <a href={clinic.phoneHref} className="text-primary font-medium underline underline-offset-2">
+              {clinic.phone}
+            </a>{" "}
+            — we&apos;re happy to help.
           </p>
           <button
-            onClick={() => router.push("/contact")}
+            onClick={() => router.push("/#appointment")}
             className="btn-secondary inline-flex items-center gap-2"
           >
             Contact Our Team

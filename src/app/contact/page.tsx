@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { ContactContent } from "@/components/contact/ContactContent";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Fly Dental Clinic",
-  description: "Book an appointment at Fly Dental Clinic — Salisbury Park, Raviwar Peth and Bibwewadi, Pune. Call +91 976 747 1117.",
+  title: "Contact Us | Advanced Dental Clinic by Dr. Garde",
+  description: "Book an appointment at Advanced Dental Clinic by Dr. Garde — Pune Satara Road, Pune. Call 020 2421 3708.",
 };
 
 export default function ContactPage() {

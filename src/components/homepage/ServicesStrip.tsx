@@ -55,7 +55,7 @@ export const ServicesStrip = forwardRef<HTMLElement, React.HTMLAttributes<HTMLEl
                   <p className="mt-base text-body-sm text-muted">{service.shortDescription}</p>
 
                   <Link
-                    href={`/services/${service.slug}`}
+                    href="/#appointment"
                     className="mt-sm inline-flex items-center gap-1.5 self-start font-display font-heading text-body-sm text-ink transition-colors hover:text-primary"
                   >
                     Read More

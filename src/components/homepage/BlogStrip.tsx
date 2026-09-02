@@ -1,7 +1,6 @@
 "use client";
 
 import { forwardRef } from "react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { OptimizedImage } from "@/components/common/Image";
@@ -34,17 +33,14 @@ export const BlogStrip = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElemen
                 </div>
                 <div>
                   <h3 className="font-display font-heading text-body leading-body-tight text-ink">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
-                      {post.title}
-                    </Link>
+                    {post.title}
                   </h3>
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="mt-md inline-flex items-center gap-1.5 font-display font-heading text-body-sm text-ink underline underline-offset-4 hover:text-primary transition-colors"
+                  <span
+                    className="mt-md inline-flex items-center gap-1.5 font-display font-heading text-body-sm text-ink underline underline-offset-4"
                   >
                     Read More
                     <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-                  </Link>
+                  </span>
                 </div>
               </article>
             ))}

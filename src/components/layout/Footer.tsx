@@ -5,13 +5,13 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { clinic, branches } from "@/content/clinic";
-import { MapPin, Phone, Mail, MessageCircle, ArrowRight } from "lucide-react";
+import { MapPin, Phone, MessageCircle, ArrowRight } from "lucide-react";
 
 const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Reviews", href: "/#reviews" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "About Us", href: "/#about" },
+  { label: "Our Treatments", href: "/#services" },
+  { label: "Why Choose Us", href: "/#why-choose-us" },
+  { label: "Book Appointment", href: "/#appointment" },
 ];
 
 const treatmentLinks = [
@@ -33,7 +33,8 @@ export const Footer = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             <div>
               <h3 className="font-display font-heading text-heading-sm mb-4">
-                Fly<span className="text-primary"> Dental</span>
+                Advanced Dental
+                <span className="text-primary"> Clinic by Dr. Garde</span>
               </h3>
               <p className="text-body text-muted mb-6">{clinic.intro}</p>
               <div className="flex flex-col gap-3">
@@ -43,13 +44,6 @@ export const Footer = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>
                 >
                   <Phone className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
                   <span>{clinic.phone}</span>
-                </a>
-                <a
-                  href={clinic.emailHref}
-                  className="footer-link flex items-center gap-3 hover:text-primary transition-colors"
-                >
-                  <Mail className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
-                  <span>{clinic.email}</span>
                 </a>
                 <a
                   href={clinic.whatsappHref}
@@ -80,10 +74,8 @@ export const Footer = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>
               <h3 className="font-display font-heading text-heading-sm mb-6">Treatments</h3>
               <ul className="space-y-3" role="list">
                 {treatmentLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="footer-link inline-block hover:text-primary transition-colors">
-                      {link.label}
-                    </Link>
+                  <li key={link.label} className="footer-link inline-block text-ink">
+                    {link.label}
                   </li>
                 ))}
               </ul>
@@ -118,7 +110,7 @@ export const Footer = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>
               <Link href="/privacy" className="hover:text-primary transition-colors">
                 Privacy policy
               </Link>
-              <Link href="/contact" className="inline-flex items-center gap-1 hover:text-primary transition-colors">
+              <Link href="/#appointment" className="inline-flex items-center gap-1 hover:text-primary transition-colors">
                 Book An Appointment
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>

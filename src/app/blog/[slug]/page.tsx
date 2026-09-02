@@ -14,9 +14,9 @@ export async function generateMetadata({
 }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
-  if (!post) return { title: "Post Not Found | Fly Dental Clinic" };
+  if (!post) return { title: "Post Not Found | Advanced Dental Clinic by Dr. Garde" };
   return {
-    title: `${post.title} | Fly Dental Clinic`,
+    title: `${post.title} | Advanced Dental Clinic by Dr. Garde`,
     description: post.excerpt,
   };
 }

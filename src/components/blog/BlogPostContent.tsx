@@ -90,7 +90,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
               </p>
             </div>
             <Button variant="primary" asChild className="shrink-0">
-              <Link href="/contact">Book an Appointment</Link>
+              <Link href="/#appointment">Book an Appointment</Link>
             </Button>
           </div>
         </div>

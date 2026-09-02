@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ServicesPageContent } from "@/components/services/ServicesPageContent";
 
 export const metadata: Metadata = {
-  title: "Treatments | Fly Dental Clinic",
+  title: "Treatments | Advanced Dental Clinic by Dr. Garde",
   description: "Root canal treatment, general dentistry, dental implants, smile makeover, full mouth rehabilitation, braces, teeth cleaning, veneers and kids dental care in Pune.",
 };
 
